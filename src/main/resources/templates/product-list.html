@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+<!-- <p> Product List</p>
+ <hr>
+ <p th:text="${product.code()}"></p>
+ <p th:text="${product.name()}"></p>
+ <p th:text="${product.qty()}"></p>-->
+
+<!--for List-->
+<h1 style="text-align: center"> Product List</h1>
+<table class="table table-striped">
+    <thead class="table-primary">
+    <tr>
+        <th style="width: 3%">No_</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th style="width: 3%">Edit</th>
+        <th style="width: 3%">Delete</th>
+    </tr>
+    </thead>
+
+    <tr th:each="product, index: ${productDtoList}">
+        <td th:text="${index.count}"></td>
+        <td th:text="${product.code()}"></td>
+        <td th:text="${product.name()}"></td>
+        <td th:text="${product.qty()}"></td>
+        <td th:text="'$ ' +${product.price()}"></td>
+        <td><button type="button" class="btn btn-info">Edit</button></td>
+        <td><button type="button" class="btn btn-danger">Delete</button></td>
+     <!--   <td style="background-color: blue"><a th:href="@{'/delete/' + ${product.code()}}">Delete</a></td>-->
+
+    </tr>
+    <tfoot>
+    <td th:text="Tea_Pengthorng"></td>
+
+    </tfoot>
+</table>
+
+</body>
+</html>
